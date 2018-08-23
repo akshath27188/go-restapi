@@ -4,9 +4,9 @@ import (
 "net/http"
 "github.com/gocql/gocql"
 "encoding/json"
-"github.com/modelproject/DB/Cassandra"
-"github.com/modelproject/RestUtil"
-"github.com/modelproject/Model"
+"modelproject/DB/Cassandra"
+"modelproject/RestUtil"
+"modelproject/Model"
 "github.com/julienschmidt/httprouter"
 "fmt"
 )

@@ -6,7 +6,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
-	"github.com/modelproject/Model"
+	"modelproject/Model"
 )
 
 // FormToUser -- fills a User struct with submitted form data

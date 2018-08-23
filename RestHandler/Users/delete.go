@@ -5,8 +5,8 @@ import (
   "github.com/gocql/gocql"
   "encoding/json"
   "github.com/julienschmidt/httprouter"
-  "github.com/modelproject/Model"
-  "github.com/modelproject/DB/Cassandra"
+  "modelproject/Model"
+  "modelproject/DB/Cassandra"
   "fmt"
 )
 

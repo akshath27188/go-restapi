@@ -5,8 +5,9 @@ import (
   "log"
   "encoding/json"
   "github.com/julienschmidt/httprouter"
-  "github.com/modelproject/DB/Cassandra"
-  "github.com/modelproject/RestHandler/Users"
+  "modelproject/Config"
+  "modelproject/DB/Cassandra"
+  "modelproject/RestHandler/Users"
 )
 //"github.com/julienschmidt/httprouter"
 type heartbeatResponse struct {
@@ -20,6 +21,10 @@ func main(){
   CassandraSession := Cassandra.Session
   defer CassandraSession.Close()
 
+  //var runtime_viper = viper.New()
+  //viper.SetConfigType("json")
+  //viper.AddConfigPath(".")
+  //viper.SetConfigName("config.json")
   //router := mux.NewRouter().StrictSlash(true)
   router := httprouter.New()
   //router.HandleFunc("/", heartbeat)
@@ -30,7 +35,7 @@ func main(){
   router.GET("/users", Users.Get)
   router.GET("/users/:user_uuid", Users.GetOne)
   router.DELETE("/users/:user_uuid", Users.DeleteById)
-  log.Fatal(http.ListenAndServe(":8080", router))
+  log.Fatal(http.ListenAndServe(":"+Config.Runtime_viper.GetString("rest_node.port"), router))
 }
 
 
